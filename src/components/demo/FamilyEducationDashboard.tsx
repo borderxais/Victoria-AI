@@ -20,7 +20,7 @@ export const FamilyEducationDashboard = () => {
           <CardTitle className="flex items-center justify-between">
             <div>
               <h1 className="text-2xl font-bold">
-                Family Education Coach
+                Family Education Manager
                 <span className="block text-lg font-normal text-gray-600">
                   家庭教育管家
                 </span>

@@ -1,136 +1,112 @@
 import React from 'react';
-import { Card, CardContent } from "@/components/ui/card";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { CheckCircle2 } from 'lucide-react';
-
-const features = {
-  academic: [
-    {
-      icon: "📚",
-      title: "Course Selection",
-      subtitle: "课程规划",
-      points: ["AP/IB optimization", "Subject track planning", "Grade improvement strategies"]
-    },
-    {
-      icon: "🧠",
-      title: "Test Preparation",
-      subtitle: "考试准备",
-      points: ["SAT/ACT strategies", "AP exam preparation", "Subject test planning"]
-    },
-    {
-      icon: "🎯",
-      title: "Academic Competitions",
-      subtitle: "学科竞赛",
-      points: ["Competition selection", "Training programs", "Award optimization"]
-    }
-  ],
-  activities: [
-    {
-      icon: "🏆",
-      title: "Competition Excellence",
-      subtitle: "竞赛卓越",
-      points: ["Science & Math Olympiads", "Research Competitions", "Innovation Challenges"]
-    },
-    {
-      icon: "👥",
-      title: "Leadership Development",
-      subtitle: "领导力培养",
-      points: ["Student Organization Leadership", "Community Service", "Project Management"]
-    },
-    {
-      icon: "🔬",
-      title: "Research Experience",
-      subtitle: "研究经验",
-      points: ["University Lab Research", "Independent Projects", "Research Publications"]
-    }
-  ],
-  talents: [
-    {
-      icon: "💡",
-      title: "Research & Innovation",
-      subtitle: "研究与创新",
-      points: ["Scientific Research Projects", "Patent Development", "Technology Innovation"]
-    },
-    {
-      icon: "🎓",
-      title: "Academic Excellence",
-      subtitle: "学术特长",
-      points: ["International Olympiad Training", "Advanced Research Programs", "Academic Competition Success"]
-    },
-    {
-      icon: "⭐",
-      title: "Special Talents",
-      subtitle: "特殊才能",
-      points: ["Music & Arts Achievement", "Athletic Excellence", "Entrepreneurship Success"]
-    }
-  ]
-};
-
-export const FeatureSection = () => {
-  return (
-    <div className="py-24 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">
-            Comprehensive Solution for Elite Education
-            <span className="block text-2xl text-gray-600 mt-2">
-              精英教育全方位解决方案
-            </span>
-          </h2>
-        </div>
-
-        <Tabs defaultValue="academic" className="space-y-8">
-          <TabsList className="w-full justify-center">
-            <TabsTrigger value="academic">Academic Planning 学业规划</TabsTrigger>
-            <TabsTrigger value="activities">Activities 课外活动</TabsTrigger>
-            <TabsTrigger value="talents">Talent Development 特长发展</TabsTrigger>
-          </TabsList>
-
-          {(Object.keys(features) as Array<keyof typeof features>).map((category) => (
-            <TabsContent key={category} value={category} className="space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {features[category].map((feature, idx) => (
-                  <FeatureCard key={idx} {...feature} />
-                ))}
-              </div>
-            </TabsContent>
-          ))}
-        </Tabs>
-      </div>
-    </div>
-  );
-};
+import { GraduationCap, Award, Puzzle } from 'lucide-react';
 
 const FeatureCard = ({ 
-  icon, 
+  icon: Icon, 
   title, 
-  subtitle, 
-  points 
+  titleCn, 
+  description, 
+  descriptionCn,
+  points
 }: { 
-  icon: string; 
-  title: string; 
-  subtitle: string; 
+  icon: React.ElementType;
+  title: string;
+  titleCn: string;
+  description: string;
+  descriptionCn: string;
   points: string[];
 }) => (
-  <Card className="group hover:shadow-lg transition-all">
-    <CardContent className="pt-6">
-      <div className="space-y-4">
-        <div className="transform group-hover:scale-110 transition-transform text-4xl">
-          {icon}
-        </div>
-        <h3 className="text-xl font-semibold">
-          {title}
-          <span className="block text-base text-gray-600">{subtitle}</span>
-        </h3>
-        <ul className="space-y-2">
-          {points.map((point, idx) => (
-            <li key={idx} className="flex items-center text-gray-600">
-              <CheckCircle2 className="w-4 h-4 text-green-500 mr-2" />
-              <span>{point}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </CardContent>
-  </Card>
+  <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+    <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+      <Icon className="w-6 h-6 text-blue-600" />
+    </div>
+    <h3 className="text-2xl font-bold mb-2">
+      {title}
+      <span className="block text-lg font-medium text-gray-600 mt-1">
+        {titleCn}
+      </span>
+    </h3>
+    <p className="text-gray-600 mb-6">
+      {description}
+      <span className="block mt-1 text-gray-500">
+        {descriptionCn}
+      </span>
+    </p>
+    <ul className="space-y-3">
+      {points.map((point, index) => (
+        <li key={index} className="flex items-start">
+          <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 mr-3" />
+          <span className="text-gray-700">{point}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
 );
+
+export const FeatureSection = () => {
+  const features = [
+    {
+      icon: GraduationCap,
+      title: "Academic Planning",
+      titleCn: "学业规划",
+      description: "Comprehensive academic strategy tailored to your goals",
+      descriptionCn: "量身定制的综合学业策略",
+      points: [
+        "Personalized course selection and academic roadmap",
+        "College application strategy and timeline",
+        "GPA optimization and academic performance tracking",
+        "Test preparation planning (SAT/ACT/AP)"
+      ]
+    },
+    {
+      icon: Award,
+      title: "Activities",
+      titleCn: "课外活动",
+      description: "Strategic extracurricular planning for college applications",
+      descriptionCn: "战略性课外活动规划",
+      points: [
+        "Leadership development opportunities",
+        "Community service project planning",
+        "Competition and award strategies",
+        "Summer program recommendations"
+      ]
+    },
+    {
+      icon: Puzzle,
+      title: "Talent Development",
+      titleCn: "特长发展",
+      description: "Nurture and showcase your unique talents",
+      descriptionCn: "培养和展示您的独特才能",
+      points: [
+        "Skill assessment and development planning",
+        "Portfolio building and presentation",
+        "Research and project opportunities",
+        "Mentorship and expert connections"
+      ]
+    }
+  ];
+
+  return (
+    <section className="py-16 bg-gray-50">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
+            Comprehensive Education Services
+          </h2>
+          <p className="mt-4 text-xl text-gray-600">
+            Your path to academic excellence and personal growth
+            <span className="block mt-1">
+              通往学术卓越和个人成长的道路
+            </span>
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <FeatureCard key={index} {...feature} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};

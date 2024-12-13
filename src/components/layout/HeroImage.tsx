@@ -6,8 +6,7 @@ export const HeroImage = () => (
     <div className="absolute -right-4 -top-4 w-72 h-72 bg-blue-100 rounded-full opacity-50 blur-2xl"></div>
     <div className="relative bg-white rounded-2xl shadow-xl overflow-hidden">
       <img 
-        src="/students-celebrating.jpg" 
-        alt="Successful students celebrating at graduation" 
+        src="/students-celebrating.png" 
         className="w-full h-[400px] object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
@@ -18,7 +17,7 @@ export const HeroImage = () => (
           </div>
           <div>
             <h3 className="font-semibold text-lg">Start Your Journey</h3>
-            <p className="text-sm text-gray-200">Personalized guidance for your success</p>
+            <p className="text-sm text-gray-200">Personalized strategy for your dream college</p>
           </div>
         </div>
       </div>

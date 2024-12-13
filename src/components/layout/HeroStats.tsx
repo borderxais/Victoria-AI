@@ -1,9 +1,9 @@
 import React from 'react';
 
 const stats = [
-  { number: "98%", label: "Success Rate 成功率" },
+  { number: "95%", label: "Success Rate 成功率" },
   { number: "5000+", label: "Students 学生" },
-  { number: "50+", label: "Top Universities 顶尖学府" }
+  { number: "100+", label: "Top Universities 顶尖学府" }
 ];
 
 export const HeroStats = () => (
