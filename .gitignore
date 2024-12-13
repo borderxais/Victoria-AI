@@ -23,8 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 .bolt/*
-# Added standard Node.js and React gitignore patterns
-node_modules/
+
+# Build output
 /dist
 /build
 /.next
@@ -33,9 +33,10 @@ node_modules/
 /coverage
 /lib
 /public
-/src
 /test
 /types
+
+# Config files
 .eslintignore
 .env
 .eslintrc.json
@@ -49,7 +50,5 @@ node_modules/
 .babelrc
 .babelignore
 .webpack
-.webpack.config.js
-.webpack.config.ts
 .webpack.config.js
 .webpack.config.ts
